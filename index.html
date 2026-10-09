@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Mohammed Sultan — Healthcare Operations & Digital Innovation Professional based in Karimnagar, India. Bridging healthcare operations, digital marketing and technology." />
+  <meta property="og:title" content="Mohammed Sultan — The Series" />
+  <meta property="og:description" content="Bridging Healthcare Operations, Digital Marketing and Technology. A Netflix-style portfolio." />
+  <meta property="og:type" content="website" />
+  <title id="docTitle">Mohammed Sultan — The Series</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <!-- Fonts: Bebas Neue (Netflix-esque display) + Inter (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ══════════════ 1 · LOADER ══════════════ -->
+  <div id="loader" class="screen active" role="status" aria-label="Loading">
+    <div class="loader-inner">
+      <!-- Stylized red "N" built in pure SVG (a playful homage, not the Netflix mark) -->
+      <svg id="loaderN" viewBox="0 0 120 220" aria-hidden="true">
+        <defs>
+          <linearGradient id="nGrad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#B00610" />
+            <stop offset="0.5" stop-color="#E50914" />
+            <stop offset="1" stop-color="#7A050D" />
+          </linearGradient>
+        </defs>
+        <polygon points="8,8 42,8 78,150 78,8 112,8 112,212 78,212 42,70 42,212 8,212" fill="url(#nGrad)" />
+      </svg>
+      <div class="loader-bar"><span id="loaderBarFill"></span></div>
+      <p class="loader-text">LOADING YOUR STORY…</p>
+    </div>
+  </div>
+
+  <!-- ══════════════ 2 · TITLE CARD ══════════════ -->
+  <section id="titlecard" class="screen" aria-label="Title card">
+    <div class="titlecard-inner">
+      <p class="titlecard-kicker" id="titleKicker">A PORTFOLIO IN FIVE ACTS</p>
+      <h1 class="titlecard-title" id="titleMain">MOHAMMED SULTAN THE SERIES</h1>
+      <p class="titlecard-sub">NOW&nbsp;STREAMING</p>
+    </div>
+  </section>
+
+  <!-- ══════════════ 3 · WHO'S WATCHING? ══════════════ -->
+  <section id="profiles" class="screen" aria-label="Choose a profile">
+    <div class="profiles-inner">
+      <h2 class="profiles-heading">Who's watching?</h2>
+      <div id="profileGrid" class="profile-grid" role="listbox" aria-label="Profiles"></div>
+      <p class="profiles-hint">Use ← → and Enter, or tap a profile</p>
+    </div>
+  </section>
+
+  <!-- ══════════════ 4 · MAIN APP ══════════════ -->
+  <div id="app" class="screen" hidden>
+    <a class="skip-link" href="#rails">Skip to content</a>
+    <nav id="topnav" aria-label="Primary">
+      <div class="nav-left">
+        <span class="nav-logo" id="navBrand" tabindex="0" role="button" aria-label="Back to top">SULTANFLIX</span>
+        <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu">☰</button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#hero" data-scroll>Home</a></li>
+          <li><a href="#rail-full-story" data-scroll>About</a></li>
+          <li><a href="#skill-universe" data-scroll>Skills</a></li>
+          <li><a href="#services" data-scroll>Services</a></li>
+          <li><a href="#rail-originals" data-scroll>Portfolio</a></li>
+          <li><a href="#journey" data-scroll>Experience</a></li>
+          <li><a href="#finale" data-scroll>Contact</a></li>
+        </ul>
+      </div>
+      <div class="nav-right">
+        <button id="profileBadge" class="profile-badge" aria-label="Switch profile" title="Switch profile">
+          <span id="profileBadgeInitial">MS</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <header id="hero">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-vignette" aria-hidden="true"></div>
+      <div class="hero-content">
+        <p class="hero-kicker" id="heroKicker"></p>
+        <h1 class="hero-title" id="heroTitle"></h1>
+        <div class="hero-meta" id="heroMeta"></div>
+        <p class="hero-desc" id="heroDesc"></p>
+        <div class="hero-buttons">
+          <button class="btn btn-play" id="btnPortfolio"><span aria-hidden="true">▸</span> Explore My Portfolio</button>
+          <button class="btn btn-info" id="btnSkills"><span aria-hidden="true">✦</span> View My Skills</button>
+          <button class="btn btn-info" id="btnContact"><span aria-hidden="true">✉</span> Contact Me</button>
+        </div>
+      </div>
+      <!-- ▼▼▼ PROFILE PHOTO PLACEHOLDER: replace this monogram div with a real <img> ▼▼▼ -->
+      <div class="hero-avatar" aria-hidden="true"><span id="heroAvatarInitial">MS</span></div>
+    </header>
+
+    <!-- Content rails -->
+    <main id="rails"></main>
+
+    <!-- Skill universe (full section) -->
+    <section id="skill-universe" class="full-section" aria-label="My skill universe">
+      <h2 class="section-title">MY SKILL UNIVERSE</h2>
+      <p class="section-sub" id="skillUniverseSub"></p>
+      <div class="skill-legend" id="skillLegend" aria-label="Skill level legend"></div>
+      <div id="skillCategories" class="skill-categories"></div>
+      <p class="learning-note" id="learningNote"></p>
+    </section>
+
+    <!-- Services (full section) -->
+    <section id="services" class="full-section" aria-label="Services">
+      <h2 class="section-title">SERVICES</h2>
+      <p class="section-sub">Offered according to real capabilities — honest scope, no inflated claims.</p>
+      <div id="serviceCards" class="service-cards"></div>
+    </section>
+
+    <!-- Journey / experience overview -->
+    <section id="journey" class="full-section" aria-label="My journey">
+      <h2 class="section-title">MY JOURNEY</h2>
+      <p class="section-sub">Approximately seven years across hospital departments.</p>
+      <div id="experienceGrid" class="experience-grid"></div>
+      <h3 class="sub-heading">Employment history</h3>
+      <p class="section-sub">Add real employers, dates, and designations here.</p>
+      <div id="employerList" class="employer-list"></div>
+    </section>
+
+    <!-- Approach -->
+    <section id="approach" class="full-section" aria-label="My approach">
+      <h2 class="section-title">MY APPROACH</h2>
+      <p class="section-sub" id="approachDesc"></p>
+      <div id="approachCards" class="approach-cards"></div>
+    </section>
+
+    <!-- Finale / contact -->
+    <section id="finale" aria-label="Contact">
+      <h2 class="finale-title" id="finaleHeading">TO BE CONTINUED…</h2>
+      <p class="finale-sub" id="finaleSub"></p>
+
+      <form id="contactForm" class="contact-form" novalidate>
+        <h3 class="form-title">Send an enquiry</h3>
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="cfName">Name</label>
+            <input type="text" id="cfName" name="name" autocomplete="name" required />
+          </div>
+          <div class="form-field">
+            <label for="cfEmail">Email</label>
+            <input type="email" id="cfEmail" name="email" autocomplete="email" required />
+          </div>
+          <div class="form-field">
+            <label for="cfOrg">Organization <span class="opt">(optional)</span></label>
+            <input type="text" id="cfOrg" name="organization" autocomplete="organization" />
+          </div>
+          <div class="form-field">
+            <label for="cfType">Project or enquiry type</label>
+            <select id="cfType" name="type" required></select>
+          </div>
+          <div class="form-field form-full">
+            <label for="cfMsg">Message</label>
+            <textarea id="cfMsg" name="message" rows="5" required></textarea>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-play">Send Enquiry</button>
+        <p id="formNotice" class="form-notice" role="status" hidden></p>
+      </form>
+
+      <div class="contact-placeholders" id="contactPlaceholders" aria-label="Contact details (to be added)"></div>
+    </section>
+
+    <footer id="footer">
+      <p id="footerNote"></p>
+    </footer>
+  </div>
+
+  <!-- ══════════════ 5 · DETAIL MODAL ══════════════ -->
+  <div id="modalOverlay" class="modal-overlay" hidden>
+    <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button id="modalClose" class="modal-close" aria-label="Close">✕</button>
+      <div class="modal-art" id="modalArt" aria-hidden="true"><span id="modalArtInitial">MS</span></div>
+      <div class="modal-body">
+        <p class="modal-kicker" id="modalKicker"></p>
+        <h2 class="modal-title" id="modalTitle"></h2>
+        <div class="modal-meta" id="modalMeta"></div>
+        <p class="modal-desc" id="modalDesc"></p>
+        <div class="modal-extra" id="modalExtra"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GSAP via CDN (animations degrade gracefully if offline) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
